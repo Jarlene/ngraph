@@ -2460,7 +2460,7 @@ NGRAPH_TEST(${BACKEND_NAME}, sin)
         input.begin(), input.end(), input.begin(), [](float x) -> float { return sinf(x); });
 
     backend->call(f, {result}, {a});
-    EXPECT_EQ(input, read_vector<float>(result));
+    EXPECT_TRUE(test::all_close(input, read_vector<float>(result)));
 }
 
 NGRAPH_TEST(${BACKEND_NAME}, cos)
@@ -2482,7 +2482,7 @@ NGRAPH_TEST(${BACKEND_NAME}, cos)
         input.begin(), input.end(), input.begin(), [](float x) -> float { return cosf(x); });
 
     backend->call(f, {result}, {a});
-    EXPECT_EQ(input, read_vector<float>(result));
+    EXPECT_TRUE(test::all_close(input, read_vector<float>(result)));
 }
 
 NGRAPH_TEST(${BACKEND_NAME}, tan)
@@ -2525,7 +2525,7 @@ NGRAPH_TEST(${BACKEND_NAME}, asin)
         input.begin(), input.end(), input.begin(), [](float x) -> float { return asinf(x); });
 
     backend->call(f, {result}, {a});
-    EXPECT_EQ(input, read_vector<float>(result));
+    EXPECT_TRUE(test::all_close(input, read_vector<float>(result)));
 }
 
 NGRAPH_TEST(${BACKEND_NAME}, acos)
@@ -2567,7 +2567,7 @@ NGRAPH_TEST(${BACKEND_NAME}, atan)
         input.begin(), input.end(), input.begin(), [](float x) -> float { return atanf(x); });
 
     backend->call(f, {result}, {a});
-    EXPECT_EQ(input, read_vector<float>(result));
+    EXPECT_TRUE(test::all_close(input, read_vector<float>(result)));
 }
 
 NGRAPH_TEST(${BACKEND_NAME}, sinh)
@@ -2588,7 +2588,7 @@ NGRAPH_TEST(${BACKEND_NAME}, sinh)
         input.begin(), input.end(), input.begin(), [](float x) -> float { return sinhf(x); });
 
     backend->call(f, {result}, {a});
-    EXPECT_EQ(input, read_vector<float>(result));
+    EXPECT_TRUE(test::all_close(input, read_vector<float>(result)));
 }
 
 NGRAPH_TEST(${BACKEND_NAME}, cosh)
